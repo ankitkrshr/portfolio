@@ -2,25 +2,29 @@
 
 import React, { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Float, Sphere, MeshDistortMaterial, Text } from "@react-three/drei";
+import { OrbitControls, Float, Sphere, Html } from "@react-three/drei";
 import * as THREE from "three";
+import { 
+  SiCplusplus, SiReact, SiNextdotjs, SiNodedotjs, SiPython, 
+  SiTailwindcss, SiDocker, SiGit, SiPostgresql, SiMongodb,
+  SiJavascript, SiExpress, SiVercel, SiFigma, SiFlask, SiFastapi, SiScikitlearn, SiTensorflow,
+  SiKubernetes, SiFirebase
+} from "react-icons/si";
+import { FaAws, FaCloud } from "react-icons/fa";
 
-const SkillIcon = ({ position, name }: { position: [number, number, number], name: string }) => {
+const SkillIcon = ({ position, name, Icon }: { position: [number, number, number], name: string, Icon: React.ElementType }) => {
   return (
     <Float speed={2} rotationIntensity={1} floatIntensity={1}>
-      <mesh position={position}>
-        <sphereGeometry args={[0.2, 32, 32]} />
-        <meshStandardMaterial color="#8B5CF6" emissive="#8B5CF6" emissiveIntensity={0.5} roughness={0} />
-      </mesh>
-      <Text
-        position={[position[0], position[1] - 0.4, position[2]]}
-        fontSize={0.2}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
+      <Html
+        position={position}
+        center
+        sprite
+        distanceFactor={10}
       >
-        {name}
-      </Text>
+        <div className="flex flex-col items-center gap-1 pointer-events-none drop-shadow-[0_0_12px_rgba(139,92,246,0.8)]">
+          <Icon className="text-4xl text-white opacity-100" />
+        </div>
+      </Html>
     </Float>
   );
 };
@@ -28,18 +32,34 @@ const SkillIcon = ({ position, name }: { position: [number, number, number], nam
 const IconsGlobe = () => {
   const groupRef = useRef<THREE.Group>(null);
   
-  const skills = [
-    "TypeScript", "React", "Next.js", "Node.js", "Python", 
-    "Tailwind", "Docker", "Git", "PostgreSQL", "MongoDB",
-    "JavaScript", "Express", "Vercel", "Figma", "Three.js"
+  const skillsList = [
+    { name: "C++", Icon: SiCplusplus }, 
+    { name: "Python", Icon: SiPython },
+    { name: "JavaScript", Icon: SiJavascript },
+    { name: "TensorFlow", Icon: SiTensorflow },
+    { name: "FastAPI", Icon: SiFastapi },
+    { name: "Flask", Icon: SiFlask },
+    { name: "React", Icon: SiReact },
+    { name: "Next.js", Icon: SiNextdotjs },
+    { name: "Node.js", Icon: SiNodedotjs },
+    { name: "Scikit-Learn", Icon: SiScikitlearn },
+    { name: "Docker", Icon: SiDocker },
+    { name: "Git", Icon: SiGit },
+    { name: "MongoDB", Icon: SiMongodb },
+    { name: "Tailwind", Icon: SiTailwindcss },
+    { name: "Vercel", Icon: SiVercel },
+    { name: "AWS", Icon: FaAws },
+    { name: "GCP", Icon: FaCloud },
+    { name: "Kubernetes", Icon: SiKubernetes },
+    { name: "Firebase", Icon: SiFirebase },
   ];
 
   const positions = useMemo(() => {
     const pts = [];
     const phi = Math.PI * (3 - Math.sqrt(5)); // golden angle in radians
 
-    for (let i = 0; i < skills.length; i++) {
-      const y = 1 - (i / (skills.length - 1)) * 2; // y goes from 1 to -1
+    for (let i = 0; i < skillsList.length; i++) {
+      const y = 1 - (i / (skillsList.length - 1)) * 2; // y goes from 1 to -1
       const radius = Math.sqrt(1 - y * y); // radius at y
 
       const theta = phi * i; // golden angle increment
@@ -47,10 +67,10 @@ const IconsGlobe = () => {
       const x = Math.cos(theta) * radius;
       const z = Math.sin(theta) * radius;
 
-      pts.push([x * 3, y * 3, z * 3] as [number, number, number]);
+      pts.push([x * 2.4, y * 2.4, z * 2.4] as [number, number, number]);
     }
     return pts;
-  }, [skills.length]);
+  }, [skillsList.length]);
 
   useFrame((state) => {
     if (groupRef.current) {
@@ -62,17 +82,17 @@ const IconsGlobe = () => {
   return (
     <group ref={groupRef}>
       {/* Central Sphere / Wireframe */}
-      <Sphere args={[2.5, 32, 32]}>
+      <Sphere args={[2.8, 32, 32]}>
         <meshStandardMaterial 
-          color="#312354" 
+          color="#8B5CF6" 
           wireframe 
           transparent 
-          opacity={0.1} 
+          opacity={0.3} 
         />
       </Sphere>
       
-      {skills.map((skill, i) => (
-        <SkillIcon key={skill} position={positions[i]} name={skill} />
+      {skillsList.map((skill, i) => (
+        <SkillIcon key={skill.name} position={positions[i]} name={skill.name} Icon={skill.Icon} />
       ))}
     </group>
   );

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const Hero = () => {
   const name1 = "ANKIT".split("");
-  const name2 = "SHARMA".split("");
+  const name2 = "KUMAR".split("");
 
   const container = {
     hidden: { opacity: 0 },
@@ -80,7 +80,7 @@ export const Hero = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="mt-6 text-sm md:text-lg text-foreground/60 font-medium tracking-[0.3em] uppercase"
         >
-          Developer
+          Machine Learning Engineer
         </motion.p>
       </div>
 

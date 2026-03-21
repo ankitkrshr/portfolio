@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sun, Moon, Calendar } from "lucide-react";
+import { Sun, Moon, Download } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -12,8 +12,9 @@ export const Navbar = () => {
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
+    { name: "Certificates", href: "#achievements" },
     { name: "Skills", href: "#skills" },
-    { name: "Other", href: "#explore" },
+    { name: "Contact", href: "#contact" },
   ];
 
   useEffect(() => setMounted(true), []);
@@ -55,16 +56,19 @@ export const Navbar = () => {
         ))}
       </motion.nav>
 
-      {/* CTA Button (Top Right) */}
-      <motion.button
+      <motion.a
+        href="/cv.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        download="Ankit_Kumar_CV.pdf"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
         className="fixed top-6 right-6 md:right-10 z-50 px-5 py-2.5 rounded-full glass hover:glass-strong flex items-center gap-2 transition-all duration-300 shadow-xl border border-white/5 hover:scale-105"
       >
-        <Calendar className="w-4 h-4 text-foreground/80" />
-        <span className="text-sm font-medium text-foreground/80 hidden sm:inline-block">Book a Call</span>
-      </motion.button>
+        <Download className="w-4 h-4 text-foreground/80" />
+        <span className="text-sm font-medium text-foreground/80 hidden sm:inline-block">Download CV</span>
+      </motion.a>
     </>
   );
 };
