@@ -12,7 +12,7 @@ import {
 } from "react-icons/si";
 import { FaAws, FaCloud } from "react-icons/fa";
 
-const SkillIcon = ({ position, name, Icon }: { position: [number, number, number], name: string, Icon: React.ElementType }) => {
+const SkillIcon = ({ position, name, Icon }: { position: [number, number, number], name: string, Icon: React.ComponentType<{ className?: string }> }) => {
   return (
     <Float speed={2} rotationIntensity={1} floatIntensity={1}>
       <Html
