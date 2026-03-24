@@ -1,19 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sun, Moon, Download } from "lucide-react";
-import { useTheme } from "next-themes";
+import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export const Navbar = () => {
-  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const links = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
-    { name: "Certificates", href: "#achievements" },
     { name: "Skills", href: "#skills" },
+    { name: "Certificates", href: "#achievements" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -23,21 +21,6 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Theme Toggle (Top Left) */}
-      <motion.button 
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="fixed top-6 left-6 md:left-10 z-50 p-3 rounded-full glass hover:glass-strong transition-all duration-300 shadow-sm hover:scale-110 active:scale-95"
-      >
-        {theme === "dark" ? (
-          <Sun className="w-5 h-5 text-foreground/80" />
-        ) : (
-          <Moon className="w-5 h-5 text-foreground/80" />
-        )}
-      </motion.button>
-
       {/* Main Nav (Top Center) */}
       <motion.nav
         initial={{ opacity: 0, y: -20 }}

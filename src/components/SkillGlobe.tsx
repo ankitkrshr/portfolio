@@ -8,7 +8,7 @@ import {
   SiCplusplus, SiReact, SiNextdotjs, SiNodedotjs, SiPython, 
   SiTailwindcss, SiDocker, SiGit, SiPostgresql, SiMongodb,
   SiJavascript, SiExpress, SiVercel, SiFigma, SiFlask, SiFastapi, SiScikitlearn, SiTensorflow,
-  SiKubernetes, SiFirebase
+  SiKubernetes, SiFirebase, SiKotlin, SiAndroid, SiJupyter, SiGooglecolab
 } from "react-icons/si";
 import { FaAws, FaCloud } from "react-icons/fa";
 
@@ -52,6 +52,10 @@ const IconsGlobe = () => {
     { name: "GCP", Icon: FaCloud },
     { name: "Kubernetes", Icon: SiKubernetes },
     { name: "Firebase", Icon: SiFirebase },
+    { name: "Kotlin", Icon: SiKotlin },
+    { name: "Android", Icon: SiAndroid },
+    { name: "Jupyter", Icon: SiJupyter },
+    { name: "Colab", Icon: SiGooglecolab },
   ];
 
   const positions = useMemo(() => {

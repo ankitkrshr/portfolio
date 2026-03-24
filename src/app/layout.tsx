@@ -11,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ankit Sharma | Full Stack Developer",
-  description: "I help founders turn their ideas into reality",
+  title: "Ankit Kumar | Machine Learning Engineer",
+  description: "Ankit Kumar | Machine Learning Engineer",
   icons: {
     icon: "/favicon.ico",
   },

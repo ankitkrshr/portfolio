@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 export const About = () => {
   return (
@@ -81,7 +82,7 @@ export const About = () => {
           >
             <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden glass p-2 hover:glass-strong hover:scale-[1.03] hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(139,92,246,0.4)] hover:border-primary/40 transition-all duration-700 ease-out">
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
-                <Image src="/about/fornow.jpeg" alt="Portrait" fill className="object-cover" priority />
+                <Image src="/about/pfp.png" alt="Portrait" fill className="object-cover" priority />
               </div>
             </div>
             <div className="glass p-6 rounded-3xl text-center relative overflow-hidden group hover:glass-strong hover:scale-[1.03] hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(139,92,246,0.4)] hover:border-primary/40 transition-all duration-700 ease-out">
@@ -94,15 +95,21 @@ export const About = () => {
           </motion.div>
 
           {/* Android Training */}
-          <motion.div 
+          <motion.a 
+            href="https://drive.google.com/file/d/15ADPW2tgV8JKhhXF4riqXU2-aTyNWtif/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="glass rounded-3xl p-8 flex flex-col justify-between hover:glass-strong hover:scale-[1.03] hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(139,92,246,0.4)] hover:border-primary/40 transition-all duration-700 ease-out"
+            className="glass rounded-3xl p-8 flex flex-col justify-between hover:glass-strong hover:scale-[1.03] hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(139,92,246,0.4)] hover:border-primary/40 transition-all duration-700 ease-out group cursor-pointer"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4">Android</h3>
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-3xl font-bold">Android</h3>
+                <ExternalLink className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-all duration-500 text-primary" />
+              </div>
               <p className="text-foreground/80 leading-relaxed mb-4">Mastering <strong>Native Android Development</strong> and modern mobile architectures.</p>
               <p className="text-foreground/70 text-sm leading-relaxed mb-8">Completed extensive training in building responsive, user-centric mobile applications using industry-standard tools and patterns.</p>
               
@@ -143,7 +150,7 @@ export const About = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </motion.a>
         </div>
       </div>
     </section>
