@@ -88,8 +88,8 @@ export const About = () => {
             <div className="glass p-6 rounded-3xl text-center relative overflow-hidden group hover:glass-strong hover:scale-[1.03] hover:-translate-y-4 hover:shadow-[0_30px_60px_rgba(139,92,246,0.4)] hover:border-primary/40 transition-all duration-700 ease-out">
               <div className="absolute inset-0 bg-cover bg-center opacity-20 transition-opacity" style={{ backgroundImage: "url('/about/calisthenics.jpg')" }} />
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-1 tracking-wider uppercase">New Delhi, India</h3>
-                <p className="font-mono text-sm text-foreground/60">28.6139° N, 77.2090° E<br/>GMT+5:30</p>
+                <h3 className="text-2xl font-bold mb-1 tracking-wider uppercase">Aurangabad Bihar</h3>
+                <p className="font-mono text-sm text-foreground/60">24.7500° N, 84.3700° E<br/>GMT+5:30</p>
               </div>
             </div>
           </motion.div>

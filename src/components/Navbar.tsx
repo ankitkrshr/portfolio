@@ -9,8 +9,8 @@ export const Navbar = () => {
   const links = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
     { name: "Certificates", href: "#achievements" },
     { name: "Contact", href: "#contact" },
   ];
